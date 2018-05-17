@@ -1,5 +1,5 @@
 ## A Soft Core Toy CPU
-Five-stage pipeline, compatible with MIPS32 ISA, not all instructions in MIPS32 are avaliable.
+Five-stage pipeline, compatible with MIPS32 ISA, not all instructions in MIPS32 are available.
 
 Run tests:
 ```
@@ -9,6 +9,7 @@ cd ./test
 
 ## implementation
 Reference：《[自己动手写CPU][1]》, [abcdabcd987/toy-cpu][2]
+
 More details: [environment][3], [implementation][4], [tricks][5]
 
 
