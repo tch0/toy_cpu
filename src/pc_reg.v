@@ -9,30 +9,30 @@
 `include "const.v"
 
 module pc_reg (
-	input wire                    clk            ,
-	input wire                    rst            ,
-	input wire  [`StallBus   ]    stall          ,
-	input wire                    branch_flag_i  ,
-	input wire  [`RegBus     ]    branch_addr_i  ,
-	output reg  [`InstAddrBus]    pc             ,
-	output reg                    ce                // chip enable to inst_rom
+    input wire                    clk            ,
+    input wire                    rst            ,
+    input wire  [`StallBus   ]    stall          ,
+    input wire                    branch_flag_i  ,
+    input wire  [`RegBus     ]    branch_addr_i  ,
+    output reg  [`InstAddrBus]    pc             ,
+    output reg                    ce                // chip enable to inst_rom
 );
 
-	always @(posedge clk) begin
-		if(rst == `RESET_ENABLE) begin 
-			ce <= `CHIP_DISABLE;
-		end else begin 
-			ce <= `CHIP_ENABLE;
-		end
-	end
+    always @(posedge clk) begin
+        if(rst == `RESET_ENABLE) begin 
+            ce <= `CHIP_DISABLE;
+        end else begin 
+            ce <= `CHIP_ENABLE;
+        end
+    end
 
-	always @(posedge clk) begin
-		if(ce == `CHIP_DISABLE) begin
-			pc <= 0;
-		end else if (stall[0] == `NOSTOP) begin           // the pipeline do not stop
-				if(branch_flag_i == `BRANCH)              // branch
-					pc <= branch_addr_i;
-				else pc <= pc + 4;
-		end
-	end
+    always @(posedge clk) begin
+        if(ce == `CHIP_DISABLE) begin
+            pc <= 0;
+        end else if (stall[0] == `NOSTOP) begin           // the pipeline do not stop
+                if(branch_flag_i == `BRANCH)              // branch
+                    pc <= branch_addr_i;
+                else pc <= pc + 4;
+        end
+    end
 endmodule

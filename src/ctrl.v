@@ -12,21 +12,21 @@
 `include "const.v"
 
 module ctrl (
-	input  wire               rst              ,
-	input  wire               stallreq_from_id ,
-	input  wire               stallreq_from_ex ,
-	output  reg [`StallBus]   stall               // control signal
+    input  wire               rst              ,
+    input  wire               stallreq_from_id ,
+    input  wire               stallreq_from_ex ,
+    output  reg [`StallBus]   stall               // control signal
 );
-	
-	always @(*) begin
-		if(rst == `RESET_ENABLE) begin
-			stall <= 6'b000000;
-		end else if (stallreq_from_ex == `STOP) begin 
-			stall <= 6'b001111;
-		end else if (stallreq_from_id == `STOP) begin
-			stall <= 6'b000111;
-		end else begin 
-			stall <= 6'b000000;
-		end
-	end
+    
+    always @(*) begin
+        if(rst == `RESET_ENABLE) begin
+            stall <= 6'b000000;
+        end else if (stallreq_from_ex == `STOP) begin 
+            stall <= 6'b001111;
+        end else if (stallreq_from_id == `STOP) begin
+            stall <= 6'b000111;
+        end else begin 
+            stall <= 6'b000000;
+        end
+    end
 endmodule

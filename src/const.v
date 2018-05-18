@@ -246,6 +246,5 @@
 `define  DataMemNumLog2       10
 `define  ByteWidth            7:0                   // width of one byte
 
+
 `endif
-
-
