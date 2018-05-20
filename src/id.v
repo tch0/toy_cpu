@@ -52,7 +52,7 @@ module id (
     output  reg                           next_in_delay_slot_o       // next instruction is in delay slot or not
 );
 
-    // 取得指令的指令码，功能码
+    // get every part of an instruction
     wire  [5:0 ]  op       =  inst_i[31:26];
     wire  [4:0 ]  rs       =  inst_i[25:21];
     wire  [4:0 ]  rt       =  inst_i[20:16];
@@ -139,7 +139,7 @@ module id (
                     `EXE_ADDU :  `SET_INST(`EXE_ADDU_OP , `EXE_RES_ARITH, 1, rs, 1, rt, 1, rd, 0 , 1);
                     `EXE_SUB  :  `SET_INST(`EXE_SUB_OP  , `EXE_RES_ARITH, 1, rs, 1, rt, 1, rd, 0 , 1);
                     `EXE_SUBU :  `SET_INST(`EXE_SUBU_OP , `EXE_RES_ARITH, 1, rs, 1, rt, 1, rd, 0 , 1);
-                    `EXE_MULT :  `SET_INST(`EXE_MULT_OP , `EXE_RES_ARITH, 1, rs, 1, rt, 1, rd, 0 , 1);  // mul未实现以后补上？
+                    `EXE_MULT :  `SET_INST(`EXE_MULT_OP , `EXE_RES_ARITH, 1, rs, 1, rt, 1, rd, 0 , 1);  // mul ?
                     `EXE_MULTU:  `SET_INST(`EXE_MULTU_OP, `EXE_RES_ARITH, 1, rs, 1, rt, 1, rd, 0 , 1);
                     `EXE_DIV  :  `SET_INST(`EXE_DIV_OP  , `EXE_RES_ARITH, 1, rs, 1, rt, 0, rd ,0 , 1);
                     `EXE_DIVU :  `SET_INST(`EXE_DIV_OP  , `EXE_RES_ARITH, 1, rs, 1, rt, 0, rd ,0 , 1);
