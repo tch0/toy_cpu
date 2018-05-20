@@ -36,4 +36,4 @@ compile: $(targets)
 	./bin2mem -o $@ $<
 
 clean:
-	rm -f ../data/*.txt
+	rm -rf ../data/*.txt bin2mem
