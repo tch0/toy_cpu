@@ -1,6 +1,8 @@
 ## A Soft Core Toy CPU
 Five-stage pipeline, compatible with MIPS32 ISA, not all instructions in MIPS32 are available.
 
+Dependencies: Icarus Verilog, GtkWave, g++
+
 Run tests:
 ```shell
 cd ./test
