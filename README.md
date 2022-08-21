@@ -1,21 +1,31 @@
-## A Soft Core Toy CPU
-Five-stage pipeline, compatible with MIPS32 ISA, not all instructions in MIPS32 are available.
+## 一个软核的玩具CPU实现
+- 五级流水线。
+- 与MIPS32兼容。
+- 只实现了一部分指令。
 
-Dependencies: Icarus Verilog, GtkWave, g++, Make
+依赖：
+- Icarus Verilog
+- GtkWave
+- g++
+- Make
 
-Run tests:
+运行测试:
 ```shell
 cd ./test
 ./runtest.sh -t
 ```
 
-## Implementation
-Reference：《[自己动手写CPU][1]》, [abcdabcd987/toy-cpu][2]
 
-More details: [environment][3], [implementation][4]
+参考：
+- 《[自己动手写CPU][1]》
+- [abcdabcd987/toy-cpu][2]
+
+笔记：
+- [环境搭建][3]
+- [实现细节][4]
 
 
   [1]: https://blog.csdn.net/leishangwen/article/list/5?
   [2]: https://github.com/abcdabcd987/toy-cpu
-  [3]: https://aojueliuyun.github.io/2018/04/30/2018.4.30--write-a-toy-cpu--environment/
-  [4]: https://aojueliuyun.github.io/2018/05/16/2018.5.16--write-a-toy-cpu--implementation/
+  [3]: environment.md
+  [4]: implementation.md
